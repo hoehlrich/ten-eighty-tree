@@ -1,0 +1,29 @@
+<svg viewBox="0 0 420 420" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <path id="top" d="M 80,210 A 130,130 0 0 1 340,210" />
+    <path id="bot" d="M 66,210 A 144,144 0 0 0 354,210" />
+  </defs>
+
+  <circle cx="210" cy="210" r="170" fill="none" stroke="#1b1b1b" stroke-width="3"/>
+  <circle cx="210" cy="210" r="158" fill="none" stroke="#1b1b1b" stroke-width="1"/>
+
+  <text font-size="26" font-weight="700" letter-spacing="3.5" fill="#1b1b1b">
+    <textPath href="#top" startOffset="50%" text-anchor="middle">TEN-EIGHTY TREE</textPath>
+  </text>
+  <text font-size="22" font-weight="600" letter-spacing="3.5" fill="#1b1b1b">
+    <textPath href="#bot" startOffset="50%" text-anchor="middle">LUMBER &amp; LOGS</textPath>
+  </text>
+
+  <rect x="34" y="204" width="12" height="12" transform="rotate(45 40 210)" fill="#1b1b1b"/>
+  <rect x="374" y="204" width="12" height="12" transform="rotate(45 380 210)" fill="#1b1b1b"/>
+
+  <!-- center: pine tree -->
+  <g fill="#1b1b1b">
+    <rect x="204" y="236" width="12" height="20"/>
+    <polygon points="210,196 168,240 252,240"/>
+    <polygon points="210,168 176,210 244,210"/>
+    <polygon points="210,140 184,182 236,182"/>
+  </g>
+
+  <text x="210" y="292" font-size="17" font-weight="700" letter-spacing="4" fill="#6f6f6f" text-anchor="middle">EST. 2025</text>
+</svg>

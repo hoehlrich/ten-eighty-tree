@@ -1,0 +1,14 @@
+<svg viewBox="76 55 490 74" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica, Arial, sans-serif">
+  <!-- icon: pine at text-block height, widened slightly (height unchanged) -->
+  <g fill="#1b1b1b" transform="translate(61,39.25) scale(0.60,0.5547)">
+    <rect x="64" y="140" width="12" height="20"/>
+    <polygon points="70,96 30,140 110,140"/>
+    <polygon points="70,64 38,104 102,104"/>
+    <polygon points="70,32 46,74 94,74"/>
+  </g>
+
+  <!-- wordmark: name above rule, descriptor below -->
+  <text x="150" y="88" font-size="44" font-weight="700" letter-spacing="1" fill="#1b1b1b">TEN-EIGHTY TREE</text>
+  <line x1="152" y1="102" x2="560" y2="102" stroke="#1b1b1b" stroke-width="1.5"/>
+  <text x="154" y="128" font-size="21" font-weight="500" letter-spacing="16" fill="#6f6f6f">LUMBER &amp; LOGS</text>
+</svg>
