@@ -131,6 +131,7 @@ a {
   align-items: center;
   gap: 12px;
   height: 100%;
+  padding: 14px 0;
 }
 
 .nav__logo {
@@ -477,6 +478,21 @@ a {
   font-family: inherit;
 }
 
+.submit-btn:disabled {
+  opacity: 0.6;
+  cursor: progress;
+}
+
+.submit-error {
+  background: oklch(95% 0.04 40);
+  border: 1px solid var(--rust);
+  color: oklch(45% 0.14 35);
+  border-radius: 9px;
+  padding: 12px 14px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
 .submit-note {
   font-size: 12.5px;
   color: oklch(55% 0.02 55);
@@ -669,4 +685,96 @@ a {
   .nav__links .nav__link {
     display: none;
   }
+}
+
+/* ── Legal / compliance pages (Privacy, Terms) ──────────────────────────
+   Standalone documents on their own routes; not linked from the nav. */
+.legal {
+  background: var(--page-bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+.legal__wrap {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+  line-height: 1.65;
+}
+.legal__backlink {
+  display: inline-block;
+  margin-bottom: 24px;
+  font-size: 14px;
+  color: var(--rust);
+}
+.legal__header {
+  border-bottom: 3px solid var(--brown-hero);
+  padding-bottom: 20px;
+  margin-bottom: 8px;
+}
+.legal__brand {
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+  color: var(--brown-hero);
+  text-transform: uppercase;
+}
+.legal__title {
+  font-family: var(--font-head);
+  font-size: clamp(28px, 5vw, 38px);
+  line-height: 1.15;
+  margin: 12px 0 6px;
+  color: var(--text);
+}
+.legal__updated {
+  color: var(--text-muted);
+  font-size: 14px;
+  margin: 0;
+}
+.legal h2 {
+  font-family: var(--font-head);
+  font-size: 21px;
+  margin: 38px 0 10px;
+  color: var(--brown-hero);
+}
+.legal p,
+.legal li {
+  color: var(--text);
+}
+.legal a {
+  color: var(--rust);
+}
+.legal ul {
+  padding-left: 22px;
+}
+.legal li {
+  margin: 6px 0;
+}
+.legal__callout {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--rust);
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin: 24px 0;
+}
+.legal__callout strong {
+  color: var(--brown-hero);
+}
+.legal__contact {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px 24px;
+  margin-top: 28px;
+}
+.legal__contact h2 {
+  margin-top: 0;
+}
+.legal__footer {
+  margin-top: 56px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+  font-size: 13px;
+  color: var(--text-muted);
 }

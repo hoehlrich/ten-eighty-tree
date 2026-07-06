@@ -16,6 +16,8 @@ export default function OrderForm() {
   const [method, setMethod] = useState(INITIAL.method);
   const [form, setForm] = useState(INITIAL.form);
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState(null);
 
   const selected = productById(selectedProduct);
   const isDelivery = method === 'delivery';
@@ -27,10 +29,41 @@ export default function OrderForm() {
   const updateField = (key) => (e) =>
     setForm((f) => ({ ...f, [key]: e.target.value }));
 
-  const submitOrder = () => {
-    // NOTE: prototype has no backend. Wire this to a real destination
-    // (form service, email/SMS notification, order inbox) before launch.
-    setSubmitted(true);
+  const submitOrder = async () => {
+    if (submitting) return;
+    setError(null);
+
+    // Light client-side validation; the server validates authoritatively.
+    if (!form.name.trim() || !form.contact.trim() || (isDelivery && !form.address.trim())) {
+      setError(
+        isDelivery
+          ? 'Please add your name, contact, and delivery address.'
+          : 'Please add your name and a phone or email.'
+      );
+      return;
+    }
+
+    setSubmitting(true);
+    try {
+      const res = await fetch('/api/orders', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          productId: selectedProduct,
+          qty,
+          method,
+          customer: form,
+        }),
+      });
+      if (!res.ok) throw new Error('request_failed');
+      setSubmitted(true);
+    } catch {
+      setError(
+        "Sorry — we couldn't send your request just now. Please try again, or call us at (555) 019-0834."
+      );
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const resetForm = () => {
@@ -39,6 +72,8 @@ export default function OrderForm() {
     setMethod(INITIAL.method);
     setForm(EMPTY_FORM);
     setSubmitted(false);
+    setError(null);
+    setSubmitting(false);
   };
 
   return (
@@ -174,8 +209,19 @@ export default function OrderForm() {
               />
             </div>
 
-            <button type="button" className="submit-btn" onClick={submitOrder}>
-              Send Order Request
+            {error && (
+              <div className="submit-error" role="alert">
+                {error}
+              </div>
+            )}
+            <button
+              type="button"
+              className="submit-btn"
+              onClick={submitOrder}
+              disabled={submitting}
+              aria-busy={submitting}
+            >
+              {submitting ? 'Sending…' : 'Send Order Request'}
             </button>
             <div className="submit-note">
               This sends a request. We'll follow up to confirm availability and
